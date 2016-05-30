@@ -30,7 +30,7 @@ RESULTS_COLLECTORS = [
     'addok.helpers.collectors.ensure_geohash_results_are_included_if_center_is_given',  # noqa
     'addok_trigrams.extend_results_removing_numbers',
     'addok_trigrams.extend_results_removing_one_whole_word',
-    'addok_trigrams.extend_results_removing_succesive_trigrams',
+    'addok_trigrams.extend_results_removing_successive_trigrams',
 ]
 GEOZONES_LEVELS = ['fr/region', 'fr/county', 'fr/town']
 GEOZONES_MAX_IMPORTANCE = {
