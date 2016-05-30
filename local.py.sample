@@ -1,14 +1,12 @@
-COMMON_THRESHOLD = 500
 LOG_QUERIES = False
 LOG_NOT_FOUND = False
 FIELDS = [
     {'key': 'name', 'boost': 4, 'null': False},
     {'key': 'code'},
     {'key': 'postal',
-     'boost': lambda doc: 1.2 if doc.get('type') == 'town' else 1},
+     'boost': lambda doc: 1.2 if doc.get('level') == 'fr/town' else 1},
 ]
 FILTERS = ["type", "id"]
-INTERSECT_LIMIT = 100
 BLOCKED_PLUGINS = ['addok.pairs', 'addok.fuzzy', 'addok.autocomplete']
 QUERY_PROCESSORS = []
 HOUSENUMBER_PROCESSORS = []
