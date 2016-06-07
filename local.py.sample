@@ -32,6 +32,9 @@ RESULTS_COLLECTORS = [
     'addok_trigrams.extend_results_removing_one_whole_word',
     'addok_trigrams.extend_results_removing_successive_trigrams',
 ]
+BATCH_PROCESSORS = [
+    'addok_geozones.utils.prepare_document',
+]
 GEOZONES_LEVELS = ['fr/region', 'fr/county', 'fr/town']
 GEOZONES_MAX_IMPORTANCE = {
     'fr/region': 11898502,
