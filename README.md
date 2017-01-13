@@ -32,4 +32,4 @@ This plugin adds two configuration keys that needs more consideration:
 Get the zones from https://www.data.gouv.fr/fr/datasets/geozones/
 Then:
 
-    addok batch path/to/zones.msgpack
+    addok batch path/to/zones.msgpack --config=local.py

@@ -1,5 +1,5 @@
 from addok.helpers import yielder
-from addok import config
+from addok.config import config
 from shapely.geometry import shape
 
 
