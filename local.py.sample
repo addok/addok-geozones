@@ -6,7 +6,7 @@ FIELDS = [
     {'key': 'postal',
      'boost': lambda doc: 1.2 if doc.get('level') == 'fr/town' else 1},
 ]
-FILTERS = ["type", "id"]
+FILTERS = ["level"]
 BLOCKED_PLUGINS = ['addok.pairs', 'addok.fuzzy', 'addok.autocomplete']
 QUERY_PROCESSORS = []
 HOUSENUMBER_PROCESSORS = []
