@@ -1,29 +1,29 @@
+from addok.config.default import INDEXERS_PYPATHS
+
 LOG_QUERIES = False
 LOG_NOT_FOUND = False
 FIELDS = [
     {'key': 'name', 'boost': 4, 'null': False},
     {'key': 'code'},
     {'key': 'postal',
-     'boost': lambda doc: 1.2 if doc.get('level') == 'fr/town' else 1},
+     'boost': lambda doc: 1.2 if doc.get('level') == 'fr/commune' else 1},
 ]
-FILTERS = ["level"]
-BLOCKED_PLUGINS = ['addok.pairs', 'addok.fuzzy', 'addok.autocomplete']
-QUERY_PROCESSORS = []
-HOUSENUMBER_PROCESSORS = []
-SEARCH_RESULT_PROCESSORS = [
+FILTERS = ['level']
+QUERY_PROCESSORS_PYPATHS = []
+SEARCH_RESULT_PROCESSORS_PYPATHS = [
     'addok.helpers.results.make_labels',
     'addok.helpers.results.score_by_importance',
     'addok.helpers.results.score_by_autocomplete_distance',
     'addok.helpers.results.score_by_ngram_distance',
     'addok.helpers.results.score_by_geo_distance',
 ]
-PROCESSORS = [
+PROCESSORS_PYPATHS = [
     'addok.helpers.text.tokenize',
     'addok.helpers.text.normalize',
     'addok.helpers.text.synonymize',
     'addok_trigrams.trigramize',
 ]
-RESULTS_COLLECTORS = [
+RESULTS_COLLECTORS_PYPATHS = [
     'addok.helpers.collectors.only_commons',
     'addok.helpers.collectors.bucket_with_meaningful',
     'addok.helpers.collectors.reduce_with_other_commons',
@@ -32,12 +32,13 @@ RESULTS_COLLECTORS = [
     'addok_trigrams.extend_results_removing_one_whole_word',
     'addok_trigrams.extend_results_removing_successive_trigrams',
 ]
-BATCH_PROCESSORS = [
+BATCH_PROCESSORS_PYPATHS = [
     'addok_geozones.utils.prepare_document',
+    'addok.ds.store_documents',
+    'addok.helpers.index.index_documents',
 ]
-GEOZONES_LEVELS = ['fr/region', 'fr/county', 'fr/town']
-GEOZONES_MAX_IMPORTANCE = {
-    'fr/region': 11898502,
-    'fr/county': 2830000,
-    'fr/town': 2249975
-}
+
+BATCH_FILE_LOADER_PYPATH = 'addok.helpers.load_msgpack_file'
+
+INDEXERS_PYPATHS.remove('addok.pairs.PairsIndexer')
+INDEXERS_PYPATHS.remove('addok.autocomplete.EdgeNgramIndexer')

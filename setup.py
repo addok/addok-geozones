@@ -14,6 +14,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 def is_pkg(line):
     return line and not line.startswith(('--', 'git', '#'))
 
+
 with open('requirements.txt', encoding='utf-8') as reqs:
     install_requires = [l for l in reqs.read().split('\n') if is_pkg(l)]
 

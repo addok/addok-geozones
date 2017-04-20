@@ -5,6 +5,12 @@ Helpers to run a Geozones dedicated Addok instance.
 
 ## Install
 
+If you are using macOS and geos installed via homebrew,
+start by installing Shapely with:
+
+    pip install Shapely==1.5.17 --no-binary :all:
+
+
 Install addok, addok-trigrams and addok-geozones (this repository):
 
     pip install git+https://github.com/addok/addok
