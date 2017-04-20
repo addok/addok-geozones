@@ -1,6 +1,8 @@
-from addok.helpers import yielder
-from addok.config import config
 from shapely.geometry import shape
+
+from addok.config import config
+from addok.core import Result
+from addok.helpers import yielder
 
 
 @yielder
@@ -22,3 +24,15 @@ def prepare_document(doc):
     del doc['geom']
     del doc['keys']
     return doc
+
+
+def follow_successor(helper, result):
+    if result.successors:
+        id = result.successors
+        successor = Result.from_id(id)
+        # Sometimes name does not change (merge).
+        if successor.name != result.name:
+            result.labels = ['{} (anciennement {})'.format(
+                             successor.name, result.name)]
+            result._cache = {}
+            result._doc = successor._doc
