@@ -13,8 +13,8 @@ start by installing Shapely with:
 
 Install addok, addok-trigrams and addok-geozones (this repository):
 
-    pip install git+https://github.com/addok/addok
-    pip install git+https://github.com/addok/addok-trigrams
+    pip install addok
+    pip install addok-trigrams
     pip install git+https://github.com/addok/addok-geozones
 
 
