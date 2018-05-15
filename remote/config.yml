@@ -1,0 +1,4 @@
+data_uri: https://www.data.gouv.fr/fr/datasets/r/361841d7-4647-4e1b-ad7b-4f4c53512b55
+domain: geozone.space
+workers: 4
+connections: 256
