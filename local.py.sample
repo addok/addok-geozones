@@ -6,7 +6,7 @@ FIELDS = [
     {'key': 'name', 'boost': 4, 'null': False},
     {'key': 'code'},
     {'key': 'postal',
-     'boost': lambda doc: 1.2 if doc.get('level') == 'fr/commune' else 1},
+     'boost': lambda doc: 1.2 if doc.get('level') == 'fr:commune' else 1},
 ]
 FILTERS = ['level']
 QUERY_PROCESSORS_PYPATHS = []
