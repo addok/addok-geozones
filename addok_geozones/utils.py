@@ -29,7 +29,13 @@ def prepare_document(doc):
 def follow_successor(helper, result):
     if result.successors:
         id = result.successors
-        successor = Result.from_id(id)
+        try:
+            successor = Result.from_id(id)
+        except ValueError:
+            # https://github.com/addok/addok-geozones/issues/1
+            print('Unable to find successor {0.successors} from id '
+                  '{0._id}'.format(result))
+            return
         # Sometimes name does not change (merge).
         if successor.name != result.name:
             result.labels = ['{} (anciennement {})'.format(
