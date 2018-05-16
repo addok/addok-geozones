@@ -42,3 +42,14 @@ def follow_successor(helper, result):
                              successor.name, result.name)]
             result._cache = {}
             result._doc = successor._doc
+
+
+def make_labels(helper, result):
+    if not result.labels:
+        result.labels = result._rawattr(config.NAME_FIELD)[:]
+        postal = getattr(result, 'postal', None)
+        if postal:
+            result.labels.append(postal)
+        code = getattr(result, 'code', None)
+        if code:
+            result.labels.append(code)

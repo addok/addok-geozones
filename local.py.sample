@@ -11,7 +11,7 @@ FIELDS = [
 FILTERS = ['level']
 QUERY_PROCESSORS_PYPATHS = []
 SEARCH_RESULT_PROCESSORS_PYPATHS = [
-    'addok.helpers.results.make_labels',
+    'addok_geozones.utils.make_labels',
     'addok.helpers.results.score_by_importance',
     'addok.helpers.results.score_by_autocomplete_distance',
     'addok.helpers.results.score_by_ngram_distance',
