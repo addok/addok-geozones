@@ -1,0 +1,16 @@
+[Unit]
+Description=geozone
+After=syslog.target network.target redis.service
+
+[Service]
+Type=simple
+User=geozone
+ExecStart=/srv/geozone/venv/bin/gunicorn addok.http.wsgi --config gunicorn.conf
+WorkingDirectory=/srv/geozone/
+Restart=always
+RestartSec=5
+StandardOutput=journal
+SyslogIdentifier=geozone
+
+[Install]
+WantedBy=default.target
